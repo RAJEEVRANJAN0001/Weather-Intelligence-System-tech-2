@@ -7,7 +7,7 @@ const getGraphQLUri = () => {
   }
   // In production (deployed), use relative URL
   if (process.env.NODE_ENV === 'production') {
-    return '/graphql';
+    return '/api/graphql';
   }
   // In development, use localhost
   return 'http://localhost:5001/graphql';

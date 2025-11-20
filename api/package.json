@@ -5,6 +5,7 @@
   "dependencies": {
     "@apollo/server": "^4.10.0",
     "apollo-server-express": "^3.13.0",
+    "apollo-server-micro": "^3.13.0",
     "axios": "^1.6.5",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",

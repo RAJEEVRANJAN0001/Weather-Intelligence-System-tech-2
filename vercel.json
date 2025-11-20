@@ -1,8 +1,7 @@
 {
   "rewrites": [
-    { "source": "/api/:path*", "destination": "/api" },
-    { "source": "/graphql", "destination": "/api" },
-    { "source": "/health", "destination": "/api" },
-    { "source": "/debug", "destination": "/api" }
+    { "source": "/graphql", "destination": "/api/graphql" },
+    { "source": "/health", "destination": "/api/health" },
+    { "source": "/debug", "destination": "/api/debug" }
   ]
 }
