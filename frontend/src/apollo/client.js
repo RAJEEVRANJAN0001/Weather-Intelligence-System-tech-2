@@ -25,7 +25,16 @@ const client = new ApolloClient({
     watchQuery: {
       fetchPolicy: 'cache-and-network',
     },
+    query: {
+      errorPolicy: 'all',
+    },
+    mutate: {
+      errorPolicy: 'all',
+    },
   },
 });
+
+// Log the GraphQL URI for debugging
+console.log('GraphQL URI:', getGraphQLUri());
 
 export default client;

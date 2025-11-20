@@ -54,7 +54,21 @@ const Home = () => {
       }
     } catch (error) {
       console.error('Error fetching weather:', error);
-      alert(`Error: ${error.message}`);
+      console.error('Error details:', {
+        message: error.message,
+        networkError: error.networkError,
+        graphQLErrors: error.graphQLErrors
+      });
+      
+      // Better error message
+      let errorMsg = error.message;
+      if (error.networkError) {
+        errorMsg = `Network error: Unable to connect to API. Please check if environment variables are set in Vercel.`;
+      } else if (error.graphQLErrors && error.graphQLErrors.length > 0) {
+        errorMsg = error.graphQLErrors[0].message;
+      }
+      
+      alert(`Error: ${errorMsg}`);
     }
   };
 
