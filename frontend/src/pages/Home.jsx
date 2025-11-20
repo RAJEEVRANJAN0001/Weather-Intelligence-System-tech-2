@@ -97,7 +97,15 @@ const Home = () => {
   };
 
   const handleExport = (format) => {
-    const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:5001';
+    // Use environment variable, or relative URL in production, localhost in development
+    let baseUrl;
+    if (process.env.REACT_APP_API_URL) {
+      baseUrl = process.env.REACT_APP_API_URL;
+    } else if (process.env.NODE_ENV === 'production') {
+      baseUrl = ''; // Use relative URLs in production
+    } else {
+      baseUrl = 'http://localhost:5001';
+    }
     
     // If we have weather data, export it directly
     if (weatherData) {

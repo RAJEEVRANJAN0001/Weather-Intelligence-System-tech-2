@@ -29,6 +29,15 @@ async function connectToDatabase() {
   }
 }
 
+// Handle OPTIONS requests for CORS preflight
+app.options('*', (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.status(200).send();
+});
+
 // CORS configuration
 app.use(cors({
   origin: true, // Allow all origins in production, you can restrict this later
@@ -95,6 +104,8 @@ async function startApolloServer() {
 // Main request handler
 module.exports = async (req, res) => {
   try {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+    
     // Initialize Apollo Server if not already done
     await startApolloServer();
     
@@ -102,9 +113,17 @@ module.exports = async (req, res) => {
     return app(req, res);
   } catch (error) {
     console.error('Error handling request:', error);
+    console.error('Stack trace:', error.stack);
+    
+    // Set CORS headers even on error
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    
     res.status(500).json({ 
       error: 'Internal Server Error',
-      message: error.message 
+      message: error.message,
+      path: req.url
     });
   }
 };
