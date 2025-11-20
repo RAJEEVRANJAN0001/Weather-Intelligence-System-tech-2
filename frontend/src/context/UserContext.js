@@ -67,7 +67,7 @@ export const UserProvider = ({ children }) => {
   const login = async (userId, email, name) => {
     try {
       // Try to update login (user exists)
-      const { data } = await updateUserLoginMutation({ 
+      await updateUserLoginMutation({ 
         variables: { userId } 
       });
 
