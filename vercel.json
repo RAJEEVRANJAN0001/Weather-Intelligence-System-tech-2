@@ -5,15 +5,19 @@
   "rewrites": [
     {
       "source": "/graphql",
-      "destination": "/api/index.js"
-    },
-    {
-      "source": "/api/:path*",
-      "destination": "/api/index.js"
+      "destination": "/api/index"
     },
     {
       "source": "/health",
-      "destination": "/api/index.js"
+      "destination": "/api/index"
+    },
+    {
+      "source": "/debug",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/api/index"
     },
     {
       "source": "/(.*)",
