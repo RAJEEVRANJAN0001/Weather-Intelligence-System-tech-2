@@ -1,0 +1,24 @@
+node_modules
+.env
+.env.local
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Development files
+setup.sh
+start.sh
+verify.sh
+install-wizard.js
+
+# Backend node_modules (will be installed by Vercel)
+backend/node_modules
+
+# Frontend development
+frontend/node_modules
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
