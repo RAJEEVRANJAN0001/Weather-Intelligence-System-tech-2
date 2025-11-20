@@ -1,7 +1,21 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 
+// Use environment variable or default to relative URL in production, localhost in development
+const getGraphQLUri = () => {
+  if (process.env.REACT_APP_GRAPHQL_URI) {
+    return process.env.REACT_APP_GRAPHQL_URI;
+  }
+  // In production (deployed), use relative URL
+  if (process.env.NODE_ENV === 'production') {
+    return '/graphql';
+  }
+  // In development, use localhost
+  return 'http://localhost:5001/graphql';
+};
+
 const httpLink = createHttpLink({
-  uri: process.env.REACT_APP_GRAPHQL_URI || 'http://localhost:5001/graphql',
+  uri: getGraphQLUri(),
+  credentials: 'same-origin',
 });
 
 const client = new ApolloClient({
