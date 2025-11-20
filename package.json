@@ -1,0 +1,27 @@
+{
+  "name": "weather-intelligence-system",
+  "version": "1.0.0",
+  "description": "Advanced Weather Intelligence System with MERN + GraphQL",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon backend/server.js",
+    "client": "PORT=3001 npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install-all": "npm install && cd frontend && npm install",
+    "build": "cd frontend && npm run build"
+  },
+  "keywords": [
+    "weather",
+    "graphql",
+    "mern",
+    "mongodb"
+  ],
+  "author": "Rajeev Ranjan Pratap Singh",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

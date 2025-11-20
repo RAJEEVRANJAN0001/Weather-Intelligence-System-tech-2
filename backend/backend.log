@@ -1,0 +1,33 @@
+
+> weather-backend@1.0.0 start
+> node server.js
+
+(node:90548) [MONGOOSE] Warning: Duplicate schema index on {"userId":1} found. This is often due to declaring an index using both "index: true" and "schema.index()". Please remove the duplicate index definition.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:90548) [MONGOOSE] Warning: Duplicate schema index on {"userId":1} found. This is often due to declaring an index using both "index: true" and "schema.index()". Please remove the duplicate index definition.
+🚀 Server running on http://localhost:5001
+🔮 GraphQL endpoint: http://localhost:5001/graphql
+✅ MongoDB Connected: ac-vqdkunv-shard-00-00.kxpp16z.mongodb.net
+GraphQL Error: [ValidationError: Cannot query field "email_sent" on type "WeatherRequest".] {
+  locations: [ { line: 32, column: 5 } ],
+  path: undefined,
+  extensions: {
+    code: 'GRAPHQL_VALIDATION_FAILED',
+    exception: { stacktrace: [Array] }
+  }
+}
+Resolving location: DEHRI 
+Fetching weather data...
+Visual Crossing API error: Request failed with status code 401
+Falling back to Open-Meteo...
+Fetching external metadata...
+Generating demo points of interest for location: 24.9258862 84.1728723
+Weather request created successfully
+GraphQL Error: [ValidationError: Cannot query field "email_sent" on type "WeatherRequest".] {
+  locations: [ { line: 32, column: 5 } ],
+  path: undefined,
+  extensions: {
+    code: 'GRAPHQL_VALIDATION_FAILED',
+    exception: { stacktrace: [Array] }
+  }
+}
